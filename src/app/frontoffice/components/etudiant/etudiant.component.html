@@ -1,0 +1,45 @@
+<form class="col-sm-6">
+    <div class="form-group">
+      <label for="nom">Nom </label>
+      <input type="text" class="form-control" id="nom" placeholder="nom etudiant" [(ngModel)]="nomStudent" name="nom">
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prenom </label>
+        <input type="text" [(ngModel)]="prenomStudent"class="form-control" id="prenom" placeholder="prenom etudiant" name="prenom">
+    </div>
+    <div class="form-group">
+      <label for="classe">Selectionnez classe</label>
+      <select class="form-control" id="classe" name="classe"[(ngModel)]="classStudent" >
+          <option value="">---Choix classe--</option>
+        <option *ngFor="let classe of classes" value="{{classe.nom}}">{{classe.nom}}</option>
+        
+      </select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success block" (click)="addStudent()">Ajouter</button>
+    </div>
+  </form> <br>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">NOM</th>
+        <th scope="col">PRENOM</th>
+        <th scope="col">Classe</th>
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etudiant of etudiants">
+        <th scope="row">{{etudiant.id}}</th>
+        <td>{{etudiant.nom}}</td>
+        <td>{{etudiant.prenom}}</td>
+        <td>{{etudiant.classe}}</td>
+        <td><a [routerLink]="['/etudiant',etudiant.id]"> <button class="btn btn-warning">Modifier</button></a>&nbsp;
+        <button class="btn btn-danger"(click)="deleteStudent(etudiant.id)">Supprimer</button></td>
+      </tr>
+
+    </tbody>
+  </table><br><br>
+  
