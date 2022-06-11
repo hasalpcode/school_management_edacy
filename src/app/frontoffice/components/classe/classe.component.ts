@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClasseService } from '../../../services/classe.service';
+import { ApiService } from 'src/app/services/api_node.service';
+
 
 @Component({
   selector: 'app-classe',
@@ -9,10 +10,19 @@ import { ClasseService } from '../../../services/classe.service';
 export class ClasseComponent implements OnInit {
   classes:any =[]
   nomClasse!:string;
-  constructor(private classeService:ClasseService) { }
+  constructor(private ApiService:ApiService) { }
 
   ngOnInit(): void {
-    this.classes = this.classeService.getAllClasse();
+   
+    this.getAllClasse();
+  }
+
+  getAllClasse(){
+    this.ApiService.getDataClasse().subscribe((res) => {
+      this.classes = res;
+    },(error) => {
+      console.log('ERRor is ',error)
+    })
   }
   addClasse(){
     const lastId = this.classes.length - 1;

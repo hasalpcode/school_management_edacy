@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClasseService } from '../../../services/classe.service';
-import { EtudiantService } from '../../../services/etudiants.service';
+import { ApiService } from 'src/app/services/api_node.service';
+
 
 
 @Component({
@@ -16,12 +16,21 @@ export class EtudiantComponent implements OnInit {
   prenomStudent!:string;
   
 
-  constructor(private studentService:EtudiantService,private classeService:ClasseService) { }
+  constructor(private ApiService: ApiService) { }
 
   ngOnInit(): void {
-    this.etudiants = this.studentService.getAllStudents();
-    this.classes = this.classeService.getAllClasse();
+
+    
+    this.getStudent();
  
+  }
+
+  getStudent(){
+    this.ApiService.getDataStudent().subscribe((res) => {
+      this.etudiants = res;
+    },(error) => {
+      console.log('ERRor is ',error)
+    })
   }
 
   addStudent(){

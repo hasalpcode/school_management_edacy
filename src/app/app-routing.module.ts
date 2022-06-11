@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path:"",
-    redirectTo:"/portail",
+    redirectTo:"/portail/home",
     pathMatch:"full"
   },
  
