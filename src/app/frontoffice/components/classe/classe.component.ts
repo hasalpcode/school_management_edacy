@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiClasseService,  } from '../../../services/classe.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-classe',
@@ -9,7 +11,7 @@ import { ApiClasseService,  } from '../../../services/classe.service';
 export class ClasseComponent implements OnInit {
   classes:any =[]
   nomClasse!:string;
-  constructor(private classeService:ApiClasseService) { }
+  constructor(private classeService:ApiClasseService,private router:Router,private _location: Location) { }
 
   ngOnInit(): void {
     this.getAllClasses();
@@ -30,8 +32,14 @@ export class ClasseComponent implements OnInit {
     })
 
   }
-  deleteClasse(id:number){
-    this.classes.splice(this.classes.findIndex((classe:any)=> classe.id === id),1)
+  deleteClasse(id:string){
+    //this.classes.splice(this.classes.findIndex((classe:any)=> classe.id === id),1);
+
+    this.classeService.deleteClasse(id).subscribe(res => {
+      console.log('reussi')
+    });
+
+    return history.go();
 
   }
 

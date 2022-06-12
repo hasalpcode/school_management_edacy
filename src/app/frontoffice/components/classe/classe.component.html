@@ -22,11 +22,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let classe of classes">
-        <th scope="row">{{classe.id}}</th>
+        <th scope="row">{{classe._id}}</th>
         <td>{{classe.nom}}</td>
         <td>
             <button class="btn btn-warning">Modifier</button>&nbsp;
-            <button class="btn btn-danger"(click)="deleteClasse(classe.id)">Supprimer</button>
+            <button class="btn btn-danger"(click)="deleteClasse(classe._id)">Supprimer</button>
         </td>
         
       </tr>
