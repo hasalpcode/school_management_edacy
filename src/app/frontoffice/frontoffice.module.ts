@@ -7,17 +7,19 @@ import { HomeComponent } from './components/home/home.component';
 import { FrontofficeRoutingModule } from './frontoffice-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { UpdatestudentComponent } from './components/updatestudent/updatestudent.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
   declarations: [
-    FrontofficeComponent,ClasseComponent,EtudiantComponent,HomeComponent,UpdatestudentComponent
+    FrontofficeComponent,EtudiantComponent,HomeComponent,UpdatestudentComponent,ClasseComponent
   ],
   imports: [
     CommonModule,
     FrontofficeRoutingModule,
-    SharedModule
+    SharedModule,
+    
   ]
 })
 export class FrontofficeModule { }

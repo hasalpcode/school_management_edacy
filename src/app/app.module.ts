@@ -13,6 +13,7 @@ import { EtudiantComponent } from './frontoffice/components/etudiant/etudiant.co
 import { ClasseComponent } from './frontoffice/components/classe/classe.component';
 import { FormsModule } from '@angular/forms';
 import { UpdatestudentComponent } from './frontoffice/components/updatestudent/updatestudent.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,6 +29,8 @@ import { UpdatestudentComponent } from './frontoffice/components/updatestudent/u
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    HttpClientModule
+    
    
     
   ],

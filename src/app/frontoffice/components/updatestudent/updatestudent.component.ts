@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { ApiService } from 'src/app/services/api_node.service';
+import { ApiService } from 'src/app/services/api.service';
+import { EtudiantComponent } from '../etudiant/etudiant.component';
 
 
 @Component({
@@ -12,12 +13,12 @@ export class UpdatestudentComponent implements OnInit {
   studentId:any;
   
   etudiants:any =[];
-  constructor(private route:ActivatedRoute,private ApiService:ApiService) { }
+  constructor(private route:ActivatedRoute,private api:ApiService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params =>{
       this.studentId = params.get('id');
-      this.etudiants = this.ApiService.getDataStudent();
+      this.etudiants = this.api.getData();
     })
   }
   
