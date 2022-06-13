@@ -13,7 +13,10 @@ export class ApiClasseService {
         return this.http.get('http://127.0.0.1:3000/api/classe');
     }
     deleteClasse(id:any){
-        return this.http.delete('http://127.0.0.1:3000/api/classe/'+id);
-        
+        return this.http.delete('http://127.0.0.1:3000/api/classe/'+id);   
     }
+    newClasse(donnees:any){
+        return this.http.post('http://127.0.0.1:3000/api/classe/',donnees);    
+    }
+
 }
