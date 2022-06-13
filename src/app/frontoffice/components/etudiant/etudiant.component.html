@@ -1,4 +1,4 @@
-<form class="col-sm-6">
+<form class="col-sm-6" (ngSubmit)="addStudent(myForm)" #myForm="ngForm" >
     <div class="form-group">
       <label for="nom">Nom </label>
       <input type="text" class="form-control" id="nom" placeholder="nom etudiant" [(ngModel)]="nomStudent" name="nom">
@@ -16,7 +16,7 @@
       </select>
     </div>
     <div class="form-group">
-        <button class="btn btn-success block" (click)="addStudent()">Ajouter</button>
+        <button class="btn btn-success block">Ajouter</button>
     </div>
   </form> <br>
 <table class="table table-striped">

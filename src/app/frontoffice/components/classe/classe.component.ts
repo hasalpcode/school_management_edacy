@@ -24,13 +24,7 @@ export class ClasseComponent implements OnInit {
     })
   }
   addClasse(myForm:NgForm){
-     /* const lastId = this.classes.length - 1;
-    const newId = this.classes[lastId].id+ 1;
-    
-    
-    this.classes.push({
-      nom:this.nomClasse,id:newId
-    }) */
+
    this.classeService.newClasse(myForm.value).subscribe(res => {
      console.log('ajout reussie',res);
      myForm.reset();
@@ -39,7 +33,6 @@ export class ClasseComponent implements OnInit {
 
   }
   
-
   deleteClasse(id:string){
     //this.classes.splice(this.classes.findIndex((classe:any)=> classe.id === id),1);
 

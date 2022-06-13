@@ -18,5 +18,8 @@ export class ApiClasseService {
     newClasse(donnees:any){
         return this.http.post('http://127.0.0.1:3000/api/classe/',donnees);    
     }
+    updateClasse(donnees:any,id:any){
+        return this.http.put('http://127.0.0.1:3000/api/classe/'+id,donnees);    
+    }
 
 }
