@@ -32,14 +32,19 @@
     </thead>
     <tbody>
       <tr *ngFor="let etudiant of etudiants">
-        <th scope="row">{{etudiant.id}}</th>
+        <th scope="row">{{etudiant._id}}</th>
         <td>{{etudiant.nom}}</td>
         <td>{{etudiant.prenom}}</td>
         <td>{{etudiant.classe}}</td>
-        <td><a [routerLink]="['/etudiant',etudiant.id]"> <button class="btn btn-warning">Modifier</button></a>&nbsp;
-        <button class="btn btn-danger"(click)="deleteStudent(etudiant.id)">Supprimer</button></td>
+        <td><a class="nav-item nav-link" routerLink="etudiant/{{etudiant._id}}"> <button class="btn btn-warning">Modifier</button></a>&nbsp;
+          
+        <button class="btn btn-danger"(click)="deleteStudent(etudiant._id)">Supprimer</button></td>
       </tr>
 
     </tbody>
   </table><br><br>
+
+  <router-outlet>
+
+  </router-outlet>
   

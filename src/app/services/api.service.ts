@@ -20,4 +20,7 @@ export class ApiService {
     updateStudent(donnees:any,id:any){
         return this.http.put('http://127.0.0.1:3000/api/student/'+id,donnees);    
     }
+    getOneStudent(id:String){
+        return this.http.get('http://127.0.0.1:3000/api/student/'+id); 
+    }
 }

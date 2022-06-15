@@ -1,1 +1,24 @@
-<p>{{studentId}}</p>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">NOM</th>
+        <th scope="col">PRENOM</th>
+        <th scope="col">Classe</th>
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etudiant of etudiant">
+        <th scope="row">{{etudiant._id}}</th>
+        <td>{{etudiant.nom}}</td>
+        <td>{{etudiant.prenom}}</td>
+        <td>{{etudiant.classe}}</td>
+        <td><a [routerLink]="['etudiant',etudiant._id]"> <button class="btn btn-warning">Modifier</button></a>&nbsp;
+        <button class="btn btn-danger">Supprimer</button></td>
+      </tr>
+
+    </tbody>
+  </table><br><br>

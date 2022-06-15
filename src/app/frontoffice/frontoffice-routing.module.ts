@@ -21,9 +21,8 @@ const routes: Routes = [
             {
                 path:'classroom',component:ClasseComponent
             },
-            {
-                path:'etudiant/:id',component:UpdatestudentComponent
-            },
+           
+            { path: 'etudiant', component: UpdatestudentComponent },
             {
                 path:"",redirectTo:"home",pathMatch:"full"
             }

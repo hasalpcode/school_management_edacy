@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ApiClasseService,  } from '../../../services/classe.service';
+import { Router } from '@angular/router';
 
 
 
@@ -18,7 +20,7 @@ export class EtudiantComponent implements OnInit {
   prenomStudent!:string;
   
 
-  constructor(private classeService:ApiClasseService,private api: ApiService) { }
+  constructor(private classeService:ApiClasseService,private api: ApiService,private route:Router) { }
 
   ngOnInit(): void {
     this.etudiants = this.getStudents();
@@ -50,13 +52,16 @@ export class EtudiantComponent implements OnInit {
     return history.go();
 
   }
-  deleteStudent(id:number){
-    this.etudiants.splice(this.etudiants.findIndex((student:any)=> student.id === id),1)
-
+  deleteStudent(id:String){
+    this.api.deleteStudent(id).subscribe(res => {
+      console.log('suppression reussie');
+      
+    });
+    history.go();
   }
-  updateStudent(id:number){
-    const student = this.etudiants.findIndex((student:any)=> student.id === id)
-
+  updateStudent(id:any){
+    
+   this.route.navigate(['etudiant',id]);
   }
 
 
